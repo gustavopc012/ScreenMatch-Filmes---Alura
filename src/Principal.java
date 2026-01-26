@@ -8,8 +8,7 @@ import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("O poderoso chefão");
+        Filme meuFilme = new Filme("O poderoso chefão");
         meuFilme.setAnoDeLancamento(1970);
         meuFilme.setDuracaoEmMinutos(180);
         System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
@@ -33,8 +32,7 @@ public class Principal {
         twd.setEpisodiosPorTemporada(16);
         System.out.println("Duração da série : " + twd.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Doomsday");
+       Filme outroFilme = new Filme("Doomsday");
         outroFilme.setAnoDeLancamento(2026);
         outroFilme.setDuracaoEmMinutos(180);
 
@@ -54,9 +52,9 @@ public class Principal {
         episodio.setTotalVisualizacoes(400);
         filtro.filtra(episodio);
 
-        var filmedoGustavo = new Filme("No Way Home");
+         var filmedoGustavo = new Filme("No Way Home");
         filmedoGustavo.setDuracaoEmMinutos(148);
-        filmedoGustavo.setNome("No Way Home");
+        //filmedoGustavo.setNome("No Way Home");
         filmedoGustavo.setAnoDeLancamento(2021);
         filmedoGustavo.avalia(10);
 
