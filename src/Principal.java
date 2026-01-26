@@ -54,7 +54,7 @@ public class Principal {
         episodio.setTotalVisualizacoes(400);
         filtro.filtra(episodio);
 
-        var filmedoGustavo = new Filme();
+        var filmedoGustavo = new Filme("No Way Home");
         filmedoGustavo.setDuracaoEmMinutos(148);
         filmedoGustavo.setNome("No Way Home");
         filmedoGustavo.setAnoDeLancamento(2021);
