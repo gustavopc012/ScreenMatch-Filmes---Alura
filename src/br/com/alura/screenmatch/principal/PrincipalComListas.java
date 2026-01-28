@@ -22,11 +22,13 @@ public class PrincipalComListas {
         lista.add(outroFilme);
         lista.add(twd);
         for (Titulo item: lista){
-            System.out.println(item);
-            Filme filme = (Filme) item;
-            System.out.println("Classificação" + filme.getClassificao();
+            System.out.println(item.getNome());
+            if (item instanceof Filme filme && filme.getClassificao() > 2) {
+                System.out.println("Classificação " + filme.getClassificao());
+            }
             
         }
     }
 }
+
 
