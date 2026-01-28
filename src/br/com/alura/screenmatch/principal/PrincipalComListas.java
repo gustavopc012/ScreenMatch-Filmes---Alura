@@ -16,6 +16,8 @@ public class PrincipalComListas {
         filmedoGustavo.avalia(10);
         Serie twd = new Serie("The Walking Dead", 2010);
 
+        Filme f1 = filmedoGustavo;
+
         ArrayList<Titulo> lista = new ArrayList<>();
         lista.add(filmedoGustavo);
         lista.add(meuFilme);
@@ -30,5 +32,6 @@ public class PrincipalComListas {
         }
     }
 }
+
 
 
