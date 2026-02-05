@@ -35,6 +35,9 @@ public class PrincipalComBusca {
                 .create();
         TituloOmdb meuTituloOmdb = gson.fromJson(json , TituloOmdb.class);
         System.out.println(meuTituloOmdb);
-        Titulo meuTitulo = new Titulo(meuTituloOmdb)
+        Titulo meuTitulo = new Titulo(meuTituloOmdb);
+        System.out.println("Titulo já convertido");
+        System.out.println(meuTitulo);
     }
 }
+
