@@ -11,6 +11,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.IllegalFormatException;
 import java.util.Scanner;
 
 public class PrincipalComBusca {
@@ -19,34 +20,37 @@ public class PrincipalComBusca {
         System.out.println("Digite um filme para busca: ");
         var busca = leitura.nextLine();
 
-        String endereco = "https://www.omdbapi.com/?t=" + busca + "&apikey=473d4f87";
-
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endereco))
-                .build();
-        HttpResponse<String> response = client
-                .send(request, HttpResponse.BodyHandlers.ofString());
-        String json = response.body();
-        System.out.println(json);
-
-        Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                .create();
-        TituloOmdb meuTituloOmdb = gson.fromJson(json , TituloOmdb.class);
-        System.out.println(meuTituloOmdb);
+        String endereco = "https://www.omdbapi.com/?t=" + busca.replace(" ","+") + "&apikey=473d4f87";
+        System.out.println(endereco);
         try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(endereco))
+                    .build();
+            HttpResponse<String> response = client
+                    .send(request, HttpResponse.BodyHandlers.ofString());
+            String json = response.body();
+            System.out.println(json);
+
+            Gson gson = new GsonBuilder()
+                    .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                    .create();
+            TituloOmdb meuTituloOmdb = gson.fromJson(json , TituloOmdb.class);
+            System.out.println(meuTituloOmdb);
+        //try {
             Titulo meuTitulo = new Titulo(meuTituloOmdb);
             System.out.println("Titulo já convertido");
             System.out.println(meuTitulo);
         } catch (NumberFormatException e) {
             System.out.println("Aconteceu um erro: ");
             System.out.println(e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Algum erro de argumento na busca, verifique o endereço");
+        } catch (Exception e) {
+            System.out.println("Aconteceu algo, não sei oque é!! ");
         }
 
         System.out.println("o programa finalizou com sucesso!");
 
     }
 }
-
-
