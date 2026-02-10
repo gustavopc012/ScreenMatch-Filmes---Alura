@@ -25,6 +25,7 @@ public class PrincipalComBusca {
         List<Titulo> titulos = new ArrayList<>();
         Gson gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
                 .create();
 
         while (!busca.equalsIgnoreCase("sair")) {
@@ -78,6 +79,7 @@ public class PrincipalComBusca {
 
     }
 }
+
 
 
 
