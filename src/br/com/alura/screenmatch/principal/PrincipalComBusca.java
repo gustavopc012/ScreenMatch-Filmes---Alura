@@ -30,7 +30,7 @@ public class PrincipalComBusca {
 
         while (!busca.equalsIgnoreCase("sair")) {
 
-            System.out.println("Digite um filme para busca: ");
+            System.out.println("Digite um filme para busca ou sair para finalizar o programa: ");
             busca = leitura.nextLine();
 
             if (busca.equalsIgnoreCase("sair")){
@@ -79,7 +79,6 @@ public class PrincipalComBusca {
 
     }
 }
-
 
 
 
